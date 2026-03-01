@@ -1,6 +1,6 @@
 {
   "name": "create-ex-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "opinionated cli for createing react and nextjs application",
   "keywords": [],
   "homepage": "https://github.com/babually/create-ex-cli#readme",

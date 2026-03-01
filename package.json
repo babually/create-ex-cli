@@ -1,11 +1,22 @@
 {
   "name": "create-ex-cli",
   "version": "0.1.0",
-  "description": "",
+  "description": "opinionated cli for createing react and nextjs application",
+  "keywords": [],
+  "homepage": "https://github.com/babually/create-ex-cli#readme",
+  "bugs": {
+    "url": "https://github.com/babually/create-ex-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babually/create-ex-cli.git"
+  },
+  "license": "ISC",
+  "author": "mrisho",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.mjs",
   "bin": {
-    "create-ex-cli": "./dist/index.js"
+    "create-ex-cli": "dist/index.mjs"
   },
   "scripts": {
     "start": "node --no-warnings --loader ts-node/esm src/index.ts",
@@ -13,10 +24,13 @@
     "dev": "tsup src/index.ts --format esm --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.29.3",
+  "dependencies": {
+    "@clack/prompts": "^1.0.1",
+    "chalk": "^5.6.2",
+    "figlet": "^1.10.0",
+    "fs-extra": "^11.3.3",
+    "gradient-string": "^3.0.0"
+  },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^25.3.3",
@@ -24,11 +38,5 @@
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "@clack/prompts": "^1.0.1",
-    "chalk": "^5.6.2",
-    "figlet": "^1.10.0",
-    "fs-extra": "^11.3.3",
-    "gradient-string": "^3.0.0"
-  }
+  "packageManager": "pnpm@10.29.3"
 }

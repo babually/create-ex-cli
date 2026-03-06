@@ -1,6 +1,6 @@
 {
   "name": "@babually92/create-ex-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "opinionated cli for createing react and nextjs application",
   "keywords": [],
   "homepage": "https://github.com/babually/create-ex-cli#readme",
@@ -25,9 +25,7 @@
     "test": "echo \"true\""
   },
   "files": [
-    "dist",
-    "src/templates",
-    "src/index.ts"
+    "dist"
   ],
   "dependencies": {
     "@clack/prompts": "^1.0.1",

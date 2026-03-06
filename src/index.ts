@@ -27,8 +27,13 @@ type PackageManager = "pnpm" | "npm" | "yarn";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// determine where template files live depending on environment (dev vs compiled)
+// when running from dist, templates may be copied into dist/templates
+// or they might remain in ../src/templates during development.
 const TEMPLATE_DIR = fs.existsSync(path.join(__dirname, "../templates"))
   ? path.join(__dirname, "../templates")
+  : fs.existsSync(path.join(__dirname, "../src/templates"))
+  ? path.join(__dirname, "../src/templates")
   : path.join(__dirname, "templates");
 
 
@@ -183,8 +188,10 @@ async function main() {
 
     try {
         if (projectType === "frontend") {
-            // const src = path.join(TEMPLATE_DIR, "frontend", frontend!);
-            const src = path.join(TEMPLATE_DIR, `../templates/frontend/${frontend}`);
+            // TEMPLATE_DIR should already point at the directory that contains the
+            // `frontend` and `backend` subfolders.  Append the chosen framework
+            // without introducing extra "../templates" noise.
+            const src = path.join(TEMPLATE_DIR, "frontend", frontend!);
             if (!(await fs.pathExists(src)))
                 return cancel(`❌ Template not found: ${src}`);
             const s = spinner();

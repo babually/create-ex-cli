@@ -8,4 +8,8 @@ export default defineConfig({
     outExtension({ format }) {
         return { js: '.mjs' };
     },
+    // copy the templates folder into the output so the CLI can find them at
+    // runtime without shipping the whole src directory.
+    publicDir: 'src/templates',
+    clean: true,
 })

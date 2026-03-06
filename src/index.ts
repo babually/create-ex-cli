@@ -78,7 +78,7 @@ async function main() {
         console.dir(err)
     }
 
-    intro("Welocome to Ex-CLI...!");
+    intro("Welocome to Create-Ex-CLI...!");
 
     const name = await text({
         message: 'What is your project name?',
@@ -183,7 +183,8 @@ async function main() {
 
     try {
         if (projectType === "frontend") {
-            const src = path.join(TEMPLATE_DIR, "frontend", frontend!);
+            // const src = path.join(TEMPLATE_DIR, "frontend", frontend!);
+            const src = path.join(TEMPLATE_DIR, `../templates/frontend/${frontend}`);
             if (!(await fs.pathExists(src)))
                 return cancel(`❌ Template not found: ${src}`);
             const s = spinner();
